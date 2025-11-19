@@ -7,7 +7,7 @@ body {
 
 /* Layout padrão das sections */
 .section {
-  padding: 100px 40px;
+  padding: clamp(40px, 8vw, 100px) clamp(15px, 5vw, 40px);
   max-width: 1100px;
   margin: auto;
 }
@@ -16,10 +16,12 @@ body {
 .section-hero {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
   text-align: center;
+  padding: clamp(40px, 8vw, 100px);
 }
 
 .highlight {
@@ -28,13 +30,15 @@ body {
   color: transparent;
 }
 
-.social-links i {
-  width: 26px;
-  height: 26px;
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: clamp(15px, 2vw, 30px);
 }
 
 .social-links a {
-  margin: 10px;
+  margin: clamp(5px, 2vw, 10px);
   padding: 12px;
   border: 1px solid #cbd5e1;
   border-radius: 50%;
@@ -50,12 +54,12 @@ body {
 /* Scroll button */
 .scroll-down {
   position: absolute;
-  bottom: 40px;
+  bottom: clamp(20px, 5vw, 40px);
   left: 50%;
   transform: translateX(-50%);
   border: 1px solid #cbd5e1;
-  width: 48px;
-  height: 48px;
+  width: clamp(40px, 5vw, 48px);
+  height: clamp(40px, 5vw, 48px);
   border-radius: 50%;
   background: white;
   display: flex;
@@ -71,8 +75,8 @@ body {
 }
 
 .scroll-down i {
-  width: 22px;
-  height: 22px;
+  width: clamp(16px, 2vw, 22px);
+  height: clamp(16px, 2vw, 22px);
   color: #000;
 }
 
@@ -91,23 +95,23 @@ body {
 
 /* About */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 4vw, 40px);
 }
 
-.photo-box {
-  text-align: center;
+.about-grid > div {
+  flex: 1 1 300px;
 }
 
 .photo-circle {
-  width: 140px;
-  height: 140px;
+  width: clamp(100px, 12vw, 140px);
+  height: clamp(100px, 12vw, 140px);
   background: linear-gradient(to bottom right, #14b8a6, #0d9488);
   border-radius: 50%;
   margin: auto;
   color: white;
-  font-size: 50px;
+  font-size: clamp(32px, 6vw, 50px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,13 +119,14 @@ body {
 
 /* Skills */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(15px, 2vw, 25px);
 }
 
 .skill-card {
-  padding: 25px;
+  flex: 1 1 200px;
+  padding: clamp(15px, 2vw, 25px);
   background: white;
   border: 1px solid #d1d5db;
   border-radius: 14px;
@@ -134,19 +139,23 @@ body {
 }
 
 .skill-card .icon i {
-  width: 30px;
-  height: 30px;
+  width: clamp(20px, 3vw, 30px);
+  height: clamp(20px, 3vw, 30px);
 }
 
 /* Projects */
 .projects-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(15px, 2vw, 30px);
+}
+
+.project-card {
+  flex: 1 1 300px;
 }
 
 .project-banner {
-  height: 180px;
+  height: clamp(120px, 15vw, 180px);
   border-radius: 12px;
 }
 
@@ -160,9 +169,13 @@ body {
 
 /* Contact form */
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(15px, 3vw, 40px);
+}
+
+.contact-grid > div {
+  flex: 1 1 300px;
 }
 
 input, textarea {
@@ -192,7 +205,7 @@ button:hover {
 footer {
   background: #0f172a;
   color: #94a3b8;
-  padding: 40px;
+  padding: clamp(30px, 5vw, 40px);
   text-align: center;
   margin-top: 60px;
 }
@@ -208,81 +221,16 @@ footer {
   opacity: 1;
   transform: translateY(0px);
 }
-
-/* =========================
-   MEDIA QUERIES (RESPONSIVO)
-   ========================= */
-   
-/* Telas até 1024px (laptops menores e tablets) */
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .section {
-    padding: 80px 20px;
-  }
-}
-
-/* Telas até 768px (tablets e celulares maiores) */
-@media (max-width: 768px) {
-  .photo-circle {
-    width: 120px;
-    height: 120px;
-    font-size: 40px;
-  }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  
-  .scroll-down {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .scroll-down i {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .section {
-    padding: 60px 15px;
-  }
-}
-
-/* Telas até 480px (celulares pequenos) */
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
   
   h2 {
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
   }
   
   p {
-    font-size: 0.9rem;
-  }
-  
-  .photo-circle {
-    width: 100px;
-    height: 100px;
-    font-size: 32px;
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
   }
 }
