@@ -157,6 +157,8 @@ body {
 .project-banner {
   height: clamp(120px, 15vw, 180px);
   border-radius: 12px;
+  background-size: cover;
+  background-position: center;
 }
 
 .violet {
@@ -234,3 +236,4 @@ footer {
     font-size: clamp(0.8rem, 3.5vw, 1rem);
   }
 }
+
